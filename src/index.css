@@ -1,0 +1,242 @@
+/* ============================================
+   COLORS — edit values here to restyle everything
+   ============================================ */
+:root {
+  --color-body-bg: #ececec;        /* page background, behind everything */
+
+  --color-navbar-bg: #ffffff;      /* navbar background */
+  --color-navbar-border: #e2e2e2;  /* line under the navbar */
+  --color-navbar-text: #1a1a1a;    /* nav links / home text */
+  --color-navbar-hover: rgba(0, 0, 0, 0.06); /* hover background on nav buttons */
+
+  --color-dropdown-bg: #ffffff;    /* dropdown panel background */
+  --color-dropdown-border: #e2e2e2;
+  --color-dropdown-hover: rgba(0, 0, 0, 0.05);
+  --color-dropdown-shadow: rgba(0, 0, 0, 0.1);
+
+  --color-disabled-text: #999999;  /* "coming soon" items */
+  --color-badge-bg: rgba(0, 0, 0, 0.05);
+  --color-badge-text: #888888;
+
+  --color-focus-outline: #7db3ff;  /* keyboard focus ring */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-body-bg);
+}
+
+#root {
+  width: 100%;
+}
+
+.navbar {
+  position: relative;
+  background-color: var(--color-navbar-bg);
+  color: var(--color-navbar-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--color-navbar-border);
+}
+
+.navbar-inner {
+  max-width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.5rem;
+  margin-right:2em;
+}
+
+.navbar-home {
+  color: var(--color-navbar-text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.navbar-home:hover {
+  opacity: 0.65;
+}
+
+/* Desktop menu */
+.navbar-menu-desktop {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 2rem 0 0;
+  padding: 0;
+}
+
+.navbar-item {
+  position: relative;
+}
+
+.navbar-dropdown-trigger {
+  background: none;
+  border: none;
+  color: var(--color-navbar-text);
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+}
+
+.navbar-dropdown-trigger:hover,
+.navbar-dropdown-trigger:focus-visible {
+  background-color: var(--color-navbar-hover);
+}
+
+.navbar-dropdown-trigger:focus-visible {
+  outline: 2px solid var(--color-focus-outline);
+  outline-offset: 2px;
+}
+
+.navbar-caret {
+  font-size: 0.7rem;
+  transition: transform 0.15s ease;
+  display: inline-block;
+}
+
+.navbar-caret-open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown opens aligned to the right edge of its trigger,
+   so the menu extends leftward and never runs off the right side of the screen */
+.navbar-dropdown {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  background-color: var(--color-dropdown-bg);
+  border: 1px solid var(--color-dropdown-border);
+  border-radius: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem;
+  /* min-width: 200px; */
+  box-shadow: 0 8px 24px var(--color-dropdown-shadow);
+  z-index: 20;
+}
+
+.navbar-dropdown-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: var(--color-navbar-text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+a.navbar-dropdown-link:hover,
+a.navbar-dropdown-link:focus-visible {
+  background-color: var(--color-dropdown-hover);
+}
+
+.navbar-disabled {
+  color: var(--color-disabled-text);
+  cursor: default;
+}
+
+.navbar-badge {
+  font-size: 0.7rem;
+  background-color: var(--color-badge-bg);
+  color: var(--color-badge-text);
+  padding: 0.15rem 0.4rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* Hamburger (hidden on desktop) */
+.navbar-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+.navbar-hamburger span {
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-navbar-text);
+  border-radius: 2px;
+}
+
+.navbar-hamburger:focus-visible {
+  outline: 2px solid var(--color-focus-outline);
+  outline-offset: 2px;
+}
+
+/* Mobile menu */
+.navbar-mobile-menu {
+  display: none;
+}
+
+/* Breakpoint: switch to mobile layout */
+@media (max-width: 720px) {
+  .navbar-menu-desktop {
+    display: none;
+  }
+
+  .navbar-hamburger {
+    display: flex;
+  }
+
+  .navbar-mobile-menu {
+    display: block;
+    border-top: 1px solid var(--color-navbar-border);
+    padding: 0.5rem 1.5rem 1rem;
+  }
+
+  .navbar-mobile-home {
+    display: block;
+    color: var(--color-navbar-text);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.7rem 0.25rem;
+    border-bottom: 1px solid var(--color-navbar-border);
+  }
+
+  .navbar-mobile-group {
+    border-bottom: 1px solid var(--color-navbar-border);
+  }
+
+  .navbar-mobile-trigger {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--color-navbar-text);
+    font-size: 0.95rem;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 0.25rem;
+  }
+
+  .navbar-mobile-dropdown {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0.5rem 0.75rem;
+  }
+
+  .navbar-mobile-dropdown .navbar-dropdown-link {
+    padding: 0.5rem 0.25rem;
+  }
+}
