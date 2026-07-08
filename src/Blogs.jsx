@@ -7,7 +7,7 @@ const BLOG_LINKS = [
   {
     title: "Dynamic Form Generator Blog",
     description: "Allows users to create dynamic forms and send form links to other people.",
-    href: "https://marssmith73.wordpress.com/",
+    href: "https://mallorysmithformgenerator.wordpress.com/",
   },
 ];
 
