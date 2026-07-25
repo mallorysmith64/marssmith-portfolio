@@ -1,12 +1,17 @@
 const BLOG_LINKS = [
   {
+    title:"Mars Smith Blog",
+    description: "my personal blog",
+    href:"https://marssmith42blog.vercel.app/",
+  },
+  {
     title: "Mars Smith Book Reviews Blog",
-    description: "Reviews and thoughts on the books I've been reading.",
+    description: "reviews and thoughts on the books I've been reading",
     href: "https://marssmithbookreviews.wordpress.com/",
   },
   {
     title: "Dynamic Form Generator Blog",
-    description: "Allows users to create dynamic forms and send form links to other people.",
+    description: "allows users to create dynamic forms and send form links to other people",
     href: "https://mallorysmithformgenerator.wordpress.com/",
   },
 ];
