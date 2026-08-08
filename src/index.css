@@ -19,16 +19,25 @@
   --color-badge-text: #888888;
 
   --color-focus-outline: #7db3ff;  /* keyboard focus ring */
+  --primary-background: #D8673F;
 }
 
 html, body {
   margin: 0;
   padding: 0;
   background-color: var(--color-body-bg);
+  height: 100%;
 }
 
 #root {
   width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-page {
+  flex: 1 0 auto;
 }
 
 .home {
@@ -474,4 +483,280 @@ a.navbar-dropdown-link:focus-visible {
   .navbar-mobile-dropdown .navbar-dropdown-link {
     padding: 0.5rem 0.25rem;
   }
+}
+
+/* ============================================
+   Home page — built on top of the tokens already
+   defined in index.css. Only new variables added
+   here are the accent used for the hero + Bored button.
+   ============================================ */
+:root {
+  --color-accent: #c1440e;         /* warm terracotta accent, used sparingly */
+  --color-accent-hover: #a83a0c;
+  --color-accent-tint: #f7e9e2;    /* very light accent wash for hero bg */
+  --color-game-bg: #f6f6f6;        /* light well behind embedded games */
+}
+
+.home-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-navbar-text);
+}
+
+/* ---------- HERO ---------- */
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: linear-gradient(135deg, var(--color-accent-tint) 0%, var(--color-body-bg) 70%);
+  border: 1px solid var(--color-navbar-border);
+  border-radius: 14px;
+  padding: 3.5rem 2.5rem;
+  margin: 2.5rem 0 3rem;
+}
+
+.home-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 32rem;
+}
+
+.home-hero-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin: 0 0 0.6rem;
+}
+
+.home-hero h1 {
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.85rem;
+  color: var(--color-navbar-text);
+}
+
+.home-hero h1 span {
+  color: var(--color-accent);
+}
+
+.home-hero-tagline {
+  font-size: 1.05rem;
+  color: var(--color-badge-text);
+  margin: 0;
+  max-width: 26rem;
+}
+
+.home-hero-planet {
+  position: absolute;
+  right: -3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(20rem, 42vw);
+  height: auto;
+  opacity: 0.9;
+}
+
+/* ---------- ABOUT ---------- */
+.home-about {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  background-color: var(--color-navbar-bg);
+  border: 1px solid var(--color-navbar-border);
+  border-radius: 10px;
+  padding: 2.25rem;
+  margin-bottom: 3rem;
+}
+
+.home-about-photo {
+  flex: 0 0 auto;
+  width: 11rem;
+}
+
+.home-about-photo .avatar-frame {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 1px solid var(--color-navbar-border);
+  background-color: var(--color-accent-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-about-photo .avatar-frame svg {
+  width: 68%;
+  height: 68%;
+}
+
+.home-about-photo .photo-note {
+  font-size: 0.75rem;
+  color: var(--color-disabled-text);
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+.home-about-text {
+  flex: 1 1 20rem;
+  min-width: 16rem;
+}
+
+.home-about-text .label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin: 0 0 0.6rem;
+}
+
+.home-about-text h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 0.85rem;
+}
+
+.home-about-text p {
+  font-size: 0.98rem;
+  color: #3a3a3a;
+  line-height: 1.6;
+  margin: 0 0 0.85rem;
+}
+
+.home-about-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- GAMES ---------- */
+.home-games {
+  background-color: var(--color-navbar-bg);
+  border: 1px solid var(--color-navbar-border);
+  border-radius: 10px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.home-games .label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin: 0 0 0.6rem;
+}
+
+.home-games h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.home-games .game-caption {
+  color: var(--color-badge-text);
+  font-size: 0.95rem;
+  margin: 0 0 2rem;
+}
+
+.game-stage {
+  background-color: var(--color-game-bg);
+  border: 1px solid var(--color-navbar-border);
+  border-radius: 10px;
+  padding: 1.75rem;
+  min-height: 22rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.ms-embed,
+.td-embed {
+  width: 100%;
+  max-width: 26rem;
+  height: 24rem;
+  border: 1px solid var(--color-navbar-border);
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.bored-btn {
+  margin-top: 2rem;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #fff;
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 2.6rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.bored-btn:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.bored-btn:active {
+  transform: translateY(1px);
+}
+
+.bored-btn:focus-visible {
+  outline: 2px solid var(--color-focus-outline);
+  outline-offset: 2px;
+}
+
+/* ---------- FOOTER ---------- */
+.home-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--color-navbar-border);
+  font-size: 0.85rem;
+  color: var(--color-badge-text);
+}
+
+@media (max-width: 640px) {
+  .home-hero {
+    padding: 2.5rem 1.5rem;
+  }
+  .home-hero-planet {
+    opacity: 0.3;
+  }
+  .home-about {
+    padding: 1.75rem;
+  }
+  .home-games {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  font-size: 1em;
+  padding:2em;
+  color: white;
+  z-index:999;
+  font-weight: 550;
+}
+
+.page-footer-container {
+  position: relative;
+  background-color: var(--primary-background);
+  overflow: hidden;
 }
